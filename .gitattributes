@@ -1,0 +1,3 @@
+# README screenshots. Without this, a checkout with autocrlf on could rewrite
+# bytes inside them and the images stop rendering.
+*.png binary
