@@ -4,7 +4,7 @@
 
 [![Python](https://img.shields.io/badge/python-3.11%20%7C%203.12%20%7C%203.13-blue)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![Tests](https://img.shields.io/badge/tests-209%20passing-brightgreen)](#run-the-tests)
+[![CI](https://github.com/scaso01/perfect-choice/actions/workflows/ci.yml/badge.svg)](https://github.com/scaso01/perfect-choice/actions/workflows/ci.yml)
 [![Offline](https://img.shields.io/badge/runs-100%25%20offline-lightgrey)](#do-i-need-an-api-key)
 
 Perfect Choice turns "I can't decide" into arithmetic. You list your options,
