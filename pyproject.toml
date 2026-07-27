@@ -26,6 +26,9 @@ dev = [
     # The dashboard journey tests drive the real app through streamlit's AppTest.
     "streamlit>=1.30.0",
     "plotly>=5.18.0",
+    # Terminal charts are an optional feature, but one test covers what happens
+    # when drawing them fails, so the test install needs them present.
+    "plotext>=5.2.0",
 ]
 
 [project.scripts]
