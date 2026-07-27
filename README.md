@@ -69,7 +69,7 @@ If that prints `Python 3.11.x` or higher, you are good. If it says
 ### Step 1 — download the code
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/perfect-choice.git
+git clone https://github.com/scaso01/perfect-choice.git
 cd perfect-choice
 ```
 
