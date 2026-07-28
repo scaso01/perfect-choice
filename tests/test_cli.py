@@ -151,6 +151,20 @@ class TestImportCommand:
         assert result == 0
 
 
+class TestBrainSyncCommand:
+    """The memory webhook is optional, so an unconfigured sync is not a failure."""
+
+    def test_unconfigured_sync_explains_itself(self, tmp_path, monkeypatch, capsys):
+        monkeypatch.delenv("PERFECT_CHOICE_BRAIN_URL", raising=False)
+        monkeypatch.setenv("PERFECT_CHOICE_DB_PATH", str(tmp_path / "d.db"))
+
+        assert main(["--no-llm", "brain-sync"]) == 0
+
+        out = capsys.readouterr().out
+        assert "PERFECT_CHOICE_BRAIN_URL" in out, "should name the variable to set"
+        assert "Failed" not in out, "an unconfigured webhook must not read as a failure"
+
+
 class TestListCommand:
     """Test the list command with a real DB."""
 

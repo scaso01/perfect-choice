@@ -129,7 +129,7 @@ It walks you through five steps. Here is what each one is asking for:
 
 **Step 1 — What are you deciding?**
 A short title. `Which gym to join` is fine. If your title mentions a laptop,
-a job offer, a car, an apartment, a holiday or a college, Perfect Choice
+a job offer, a car, an apartment, a vacation or a college, Perfect Choice
 offers a ready-made list of criteria for that kind of decision.
 
 **Step 2 — What are your options?**

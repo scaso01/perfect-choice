@@ -246,18 +246,18 @@ def display_results(decision: Decision) -> None:
         )
     )
 
-    # Criteria weights (plotext chart, fallback to Rich table)
-    if not _try_plotext_weights(decision.criteria):
-        _display_criteria_table(decision.criteria)
+    # Tables first, always. The plotext charts carry no value labels, so when
+    # they were drawn instead of the tables the scores became unreadable and
+    # installing the optional charts extra made the output strictly worse.
+    _display_criteria_table(decision.criteria)
+    _try_plotext_weights(decision.criteria)
 
-    # Rankings (plotext chart, fallback to Rich table)
-    if not _try_plotext_ranking(decision.rankings):
-        _display_ranking_table(decision.rankings)
+    _display_ranking_table(decision.rankings)
+    _try_plotext_ranking(decision.rankings)
 
-    # Sensitivity (plotext chart, fallback to Rich tree)
     if decision.sensitivity:
-        if not _try_plotext_sensitivity(decision.sensitivity):
-            _display_sensitivity(decision.sensitivity)
+        _display_sensitivity(decision.sensitivity)
+        _try_plotext_sensitivity(decision.sensitivity)
 
     # LLM sections
     if decision.llm_summary:

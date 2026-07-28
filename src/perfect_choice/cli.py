@@ -339,10 +339,27 @@ def _cmd_import(config, args) -> int:
 def _cmd_brain_sync(config, args) -> int:
     from rich.console import Console
 
-    from perfect_choice.brain import store_decision_in_brain, update_brain_context
+    from perfect_choice.brain import (
+        brain_url,
+        store_decision_in_brain,
+        update_brain_context,
+    )
     from perfect_choice.db import Database
 
     console = Console()
+
+    # Without a configured endpoint every POST fails, which used to be reported
+    # as a red "Failed" per decision and read like a broken feature rather than
+    # an unconfigured optional one.
+    if not brain_url():
+        console.print(
+            "[yellow]No memory webhook configured, so there is nothing to sync."
+            "[/yellow]\n"
+            "[dim]Set PERFECT_CHOICE_BRAIN_URL to the endpoint that should "
+            "receive your decisions, then run this again.[/dim]"
+        )
+        return 0
+
     with Database(config.db_path) as db:
         decisions = db.list_decisions(limit=100)
 
