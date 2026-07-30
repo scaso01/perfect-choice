@@ -195,7 +195,7 @@ def _run_comparison(decision, new_criteria):
         yaxis_title="Weight (%)",
         height=350,
     )
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 
 
 def _render_ranking_chart(rankings, label):
@@ -223,4 +223,4 @@ def _render_ranking_chart(rankings, label):
         yaxis_title="Score",
         height=300,
     )
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")

@@ -73,7 +73,7 @@ def render() -> None:
                 yaxis=dict(autorange="reversed"),
                 height=max(250, len(decision.criteria) * 45),
             )
-            st.plotly_chart(fig_weights, use_container_width=True)
+            st.plotly_chart(fig_weights, width="stretch")
         else:
             st.info("No criteria defined.")
 
@@ -99,7 +99,7 @@ def render() -> None:
                 yaxis_title="Score",
                 height=350,
             )
-            st.plotly_chart(fig_rank, use_container_width=True)
+            st.plotly_chart(fig_rank, width="stretch")
         else:
             st.info("No rankings computed.")
 
@@ -119,7 +119,7 @@ def render() -> None:
         # Reorder columns by criteria order
         col_order = [c.name for c in decision.criteria if c.name in df.columns]
         df = df[col_order]
-        st.dataframe(df, use_container_width=True)
+        st.dataframe(df, width="stretch")
     else:
         st.info("No scores recorded.")
 
@@ -217,4 +217,4 @@ def _render_sensitivity_chart(decision) -> None:
         yaxis=dict(autorange="reversed"),
         height=max(250, len(names) * 45),
     )
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")

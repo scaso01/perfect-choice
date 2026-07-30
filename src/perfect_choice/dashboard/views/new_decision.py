@@ -588,7 +588,7 @@ def _render_ranking_chart(rankings: dict[str, list[RankingResult]]) -> None:
         yaxis_title="Score",
         xaxis_title="Alternative",
     )
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 
 
 def _render_weight_donut(criteria: list[Criterion]) -> None:
@@ -624,7 +624,7 @@ def _render_weight_donut(criteria: list[Criterion]) -> None:
         **PLOTLY_LAYOUT,
         title="Criteria Weights",
     )
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 
 
 def _render_sensitivity_chart(sensitivity: list) -> None:
@@ -666,7 +666,7 @@ def _render_sensitivity_chart(sensitivity: list) -> None:
         xaxis_title="Weight Perturbation (%)",
         yaxis=dict(autorange="reversed"),
     )
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 
 
 # ---------------------------------------------------------------------------
