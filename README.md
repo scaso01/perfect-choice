@@ -306,7 +306,7 @@ pip install -e ".[dev]"
 pytest tests/ -q
 ```
 
-209 tests, about 4 seconds. They are not only unit tests of the arithmetic —
+212 tests, about 6 seconds. They are not only unit tests of the arithmetic —
 `test_interactive.py` drives the real CLI wizard question by question and
 checks the winner against hand-calculated values, and `test_dashboard.py`
 drives the real Streamlit app through Streamlit's own `AppTest`. If either
