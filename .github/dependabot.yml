@@ -7,3 +7,7 @@ updates:
     groups:
       all-dependencies:
         patterns: ["*"]
+    ignore:
+      # pyproject caps plotext below 6 (a rewrite); without this Dependabot widens the cap.
+      - dependency-name: plotext
+        update-types: ["version-update:semver-major"]

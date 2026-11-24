@@ -6,11 +6,6 @@ on:
   schedule:
     - cron: "17 6 * * 1"
   workflow_dispatch:
-    inputs:
-      fail_on_purpose:
-        description: "Fail after the tests, to check how a failure is shown"
-        type: boolean
-        default: false
 
 jobs:
   test:
@@ -27,5 +22,3 @@ jobs:
       - run: pip install -e ".[dev,dashboard,charts]"
       - run: python -m pyflakes src tests
       - run: pytest tests/ -q
-      - if: inputs.fail_on_purpose
-        run: exit 1
