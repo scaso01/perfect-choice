@@ -9,6 +9,8 @@ front of a user.
 
 from __future__ import annotations
 
+from pathlib import Path
+
 import pytest
 
 from perfect_choice.db import Database
@@ -17,7 +19,7 @@ AppTest = pytest.importorskip(
     "streamlit.testing.v1", reason="streamlit is required for dashboard tests"
 ).AppTest
 
-APP = "src/perfect_choice/dashboard/app.py"
+APP = str(Path(__file__).resolve().parents[1] / "src/perfect_choice/dashboard/app.py")
 PAGES = ["New Decision", "History", "Decision Detail", "Replay"]
 
 # Every wizard stage transition ends in st.rerun(). AppTest accumulates elements

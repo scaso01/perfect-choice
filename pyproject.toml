@@ -14,7 +14,8 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-charts = ["plotext>=5.2.0"]
+# plotext 6 is a rewrite without clear_figure, bar or show.
+charts = ["plotext>=5.2.0,<6"]
 dashboard = [
     # 1.60 is the floor because the dashboard passes width="stretch", the
     # replacement for use_container_width, which older releases do not accept.
@@ -34,7 +35,7 @@ dev = [
     "plotly>=5.18.0",
     # Terminal charts are an optional feature, but one test covers what happens
     # when drawing them fails, so the test install needs them present.
-    "plotext>=5.2.0",
+    "plotext>=5.2.0,<6",
 ]
 
 [project.scripts]
