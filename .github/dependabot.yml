@@ -1,13 +1,20 @@
 version: 2
 updates:
-  - package-ecosystem: pip
+  # uv re-solves uv.lock as a whole, so one update cannot clash with another package's needs.
+  - package-ecosystem: uv
     directory: /
     schedule:
       interval: monthly
+    allow:
+      # The default covers only pyproject.toml's packages; this also updates the rest of uv.lock.
+      - dependency-type: all
     groups:
       all-dependencies:
         patterns: ["*"]
     ignore:
       # pyproject caps plotext below 6 (a rewrite); without this Dependabot widens the cap.
       - dependency-name: plotext
+        update-types: ["version-update:semver-major"]
+      # pyproject caps streamlit below 2; without this Dependabot widens the cap.
+      - dependency-name: streamlit
         update-types: ["version-update:semver-major"]
